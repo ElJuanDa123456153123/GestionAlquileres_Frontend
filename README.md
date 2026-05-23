@@ -295,15 +295,3 @@ npm cache clean --force
 rm -rf node_modules
 npm install
 ```
-
----
-
-## 📄 Licencia
-
-Propiedad de 365Soft - Todos los derechos reservados
-
----
-
-## 👨‍💻 Equipo de Desarrollo
-
-365Soft Bolivia - 2026
