@@ -1,0 +1,81 @@
+{
+  "name": "gestion-alquileres-365-soft",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "serve:pwa": "http-server dist/GestionAlquileres_365Soft/browser -p 4200 -c-1",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "test:cov": "ng test --coverage",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "lint:check": "eslint \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.{ts,html,scss}\"",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{html,scss}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "packageManager": "npm@11.6.2",
+  "dependencies": {
+    "@angular/animations": "^21.1.1",
+    "@angular/cdk": "~21.1.1",
+    "@angular/common": "^21.1.0",
+    "@angular/compiler": "^21.1.0",
+    "@angular/core": "^21.1.0",
+    "@angular/forms": "^21.1.0",
+    "@angular/material": "~21.1.1",
+    "@angular/platform-browser": "^21.1.0",
+    "@angular/router": "^21.1.0",
+    "@angular/service-worker": "^21.1.3",
+    "@jsverse/transloco": "^8.3.0",
+    "@sentry/browser": "^8.54.0",
+    "@types/leaflet": "^1.9.21",
+    "leaflet": "^1.9.4",
+    "lucide-angular": "^0.563.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.1.1",
+    "@angular/cli": "^21.1.1",
+    "@angular/compiler-cli": "^21.1.0",
+    "@angular/material": "^21.1.1",
+    "@eslint/js": "^9.39.2",
+    "@spartan-ng/cli": "^0.0.1-alpha.646",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@vitest/coverage-v8": "4.1.3",
+    "autoprefixer": "^10.4.24",
+    "eslint": "^9.39.2",
+    "globals": "^17.1.0",
+    "husky": "^9.1.7",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^15.3.0",
+    "postcss": "^8.5.6",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.18",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "^8.54.0",
+    "vitest": "4.1.3"
+  }
+}
