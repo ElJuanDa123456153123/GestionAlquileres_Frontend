@@ -1,0 +1,73 @@
+<aside class="sidebar" [class.collapsed]="!expanded()" [class.mobile-open]="isMobileOpen()">
+  <div class="sidebar-header">
+    <div class="logo-section">
+      <div class="logo-icon">
+        <lucide-icon [img]="getIconComponent('Building2')" [size]="18"></lucide-icon>
+      </div>
+      @if (expanded()) {
+        <div class="logo-text">
+          <h1>{{ 'sidebar.appName' | transloco }}</h1>
+          <p>{{ 'sidebar.appSubtitle' | transloco }}</p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Menú principal">
+    <ul class="nav-list" role="list">
+      @for (option of menuOptions(); track option.route) {
+        <li class="nav-item" role="listitem">
+          <a
+            class="nav-link"
+            [routerLink]="option.route"
+            routerLinkActive="active"
+            [attr.aria-label]="option.label | transloco"
+            [attr.title]="!expanded() ? (option.label | transloco) : null"
+          >
+            <lucide-icon
+              class="nav-icon"
+              [img]="getIconComponent(option.icon)"
+              [size]="18"
+              aria-hidden="true"
+            ></lucide-icon>
+            @if (expanded()) {
+              <span class="nav-label">{{ option.label | transloco }}</span>
+            }
+            @if (option.badgeCount) {
+              <span class="nav-badge" aria-label="Pending payments">
+                {{ formatBadgeCount(option.badgeCount) }}
+              </span>
+            }
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+
+  <!-- Language toggle -->
+  <div class="lang-toggle" [class.collapsed]="!expanded()">
+    @if (expanded()) {
+      <span class="lang-label" aria-hidden="true">{{ 'sidebar.language' | transloco }}</span>
+    }
+    <div class="lang-buttons" role="group" [attr.aria-label]="'sidebar.language' | transloco">
+      <button
+        class="lang-btn"
+        [class.active]="languageService.isSpanish()"
+        (click)="languageService.setLanguage('es')"
+        aria-label="Español"
+        [attr.title]="'Español'"
+      >
+        ES
+      </button>
+      <button
+        class="lang-btn"
+        [class.active]="languageService.isEnglish()"
+        (click)="languageService.setLanguage('en')"
+        aria-label="English"
+        [attr.title]="'English'"
+      >
+        EN
+      </button>
+    </div>
+  </div>
+</aside>
